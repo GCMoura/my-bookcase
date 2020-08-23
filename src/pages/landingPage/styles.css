@@ -1,0 +1,118 @@
+#page-landing{
+  width: 100vw;
+  height: 100vh;
+}
+#page-landing-content {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  color: var(--font);
+  background: var(--background);
+}
+
+.logo-container img{
+  height: 10rem;
+}
+.hero-image{
+  width: 100%;
+}
+.logo-container{
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+.logo-container p{
+  font: Shojumaru;
+  font-size: 5.5rem;
+  color: var(--font);
+}
+.logo-container h2{
+  font-weight: 500;
+  font-size: 2.0rem;
+  line-height: 4.6rem;
+  margin-top: 0.8rem;
+  color: var(--font);
+}
+.button-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3.0rem 0;
+  width: 90%;
+}
+.button-login a{
+  width: 40rem;
+  height: 6.0rem;
+  border-radius: 0.8rem;
+  
+  font: 700 2rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--font);
+
+  transition: background-color 0.3s;
+}
+
+.button-login a img {
+  width: 4rem;
+  margin-right: 2.4rem;
+}
+
+.button-login a.login{
+  background: var(--button-yelow-light);
+}
+.button-login a.login:hover{
+  background: var(--button-yelow-dark);
+}
+
+@media(min-width: 1100px){
+  #page-landing-content{
+    max-width: 1100px;
+    /*max-height: 100vh; */
+
+    /* margin-top: 50px;*/
+    margin-left: 80px; 
+
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "hero logo"
+    "button button"
+    ;
+  }
+
+  .logo-container{
+    grid-area: logo;
+    align-self: center;
+    text-align: center;
+    margin: 0;
+  }
+  .logo-container h2 {
+    text-align: center;
+    font-size: 3.6rem;
+  }
+  .logo-container img{
+    height: 100%;
+  }
+  .hero-image{
+    grid-area: hero;
+    justify-self: end;
+  }
+  
+  .button-login a {
+    font-size: 2.4rem;
+  }
+  .button-login{
+    grid-area: button;
+    margin-top: -150px;
+    margin-left: 50px;
+  }
+}

@@ -1,5 +1,16 @@
 :root {
-  --background: #215992;
+  --background: #00916e;
+  --main-background: #18473c;
+  --input-background: #CCC;
+  --form-background: #FFF;
+  --input-border-line: #222;
+  --button-blue-light: #215992;
+  --button-blue-dark: #0e2d4d;
+  --button-red-light: #dd614a;
+  --button-yelow-light: #fcab10;
+  --button-yelow-dark: #92620a;
+  --font: #FFF;
+  --font-black: #111;
 
   font-size: 60%;
 }
@@ -22,7 +33,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.container {
+  width: 90vw;
+  max-width: 700px;
+}
 
 @media (min-width: 700px){
   :root {
