@@ -18,16 +18,14 @@ function Login(){
   async function handleUserLogin(event){
     event.preventDefault()
 
-    const response = await api.get('login', {
-      params: {
-        name, 
-        password 
-      }
+    const response = await api.post('login', {
+      name, 
+      password 
     })
 
     if(response.data.length !== 0){
       alert('Login efetuado com sucesso')      
-      history.push(`/`)
+      history.push(`/bookcase/${response.data}`)
     } else {
       alert('Usuário ou senha incorretos. Por favor refaça o seu login.')
     }

@@ -1,10 +1,10 @@
 #page-user-form{
   width: 100vw;
   height: 100vh;
-  background: var(--main-background);
+  background: var(--background);
 }
 #page-user-form .page-header .header-content{
-  margin-bottom: 4.4rem;
+  margin-bottom: 3.4rem;
 }
 #page-user-form main {
   background: var(--form-background);
@@ -12,7 +12,7 @@
   max-width: 74rem;
   border-radius: 0.8rem;
   margin: -3.2rem auto 3.2rem;
-  padding-top: 6.4rem;
+  padding-top: 1.8rem;
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
   color: var(--font-black);
 }
 #page-user-form main footer{
-  padding: 4rem 2rem;
+  padding: 1.8rem 2rem;
   background : var(--form-background);
   border-top: 1px solid var(--input-border-line);
   margin-top: 6.4rem;
