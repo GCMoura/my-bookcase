@@ -8,7 +8,7 @@ const {  v4  } = require('uuid')
 server.use(express.json({extend: true}))
 server.use(cors())
 
-// Read database
+// Read user database
 const readFile = () => {
     const content = fs.readFileSync('src/data/user.json', 'utf-8')
     return JSON.parse(content)
@@ -20,7 +20,7 @@ const writeFile = (content) => {
     fs.writeFileSync('src/data/user.json', updateFile, 'utf-8')
 }
 
-// Verify duplicity
+// Verify user duplicity
 const verifyData = (flag, db, data) => {   
     for(let i = 0; i < db.length; i++){
         if(db[i].name === data.name && db[i].password === data.password) {
@@ -39,6 +39,26 @@ const verifyId = (db, data) => {
         } 
     }
     return userId
+}
+
+//Read book db
+const readBookDB = () => {
+    const content = fs.readFileSync('src/data/db.json', 'utf-8')
+    return JSON.parse(content)
+}
+// Create Book register
+const writeBookDB = (content) => {
+    const updateFile = JSON.stringify(content)
+    fs.writeFileSync('src/data/db.json', updateFile, 'utf-8')
+}
+// Verify book duplicity
+const verifyBookData = (flag, db, data) => {   
+    for(let i = 0; i < db.length; i++){
+        if(db[i].title === data.title && db[i].author === data.author) {
+            flag = true
+        } 
+    }
+    return flag
 }
 
 
@@ -71,6 +91,28 @@ router.post('/account', (req, res) => {
         res.send({ id, name, password })
     } else {
         alert('Usuário já cadastrado')
+    }
+})
+
+//Register book
+router.post('/register/:id', (req, res) => {
+    var { userId, title, author, genre, resume } = req.body
+    const currentData = readBookDB()
+
+    title = title.toLowerCase()
+    author = author.toLowerCase()
+    genre = genre.toLowerCase()
+
+    var flag = false
+   
+    const returnVerifyBookData = verifyBookData(flag, currentData, { title, author, genre })
+
+    if(returnVerifyBookData === false){
+        currentData.push({ userId, title, author, genre, resume })
+        writeBookDB(currentData)
+        res.send({ userId, title, author, genre, resume })
+    } else {
+        alert('Livro já cadastrado')
     }
 })
 

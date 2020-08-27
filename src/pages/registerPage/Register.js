@@ -1,14 +1,41 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Textarea from '../../components/textarea/Textarea'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
+import api from '../../backend/api'
 
 import warningIcon from '../../assets/icons/warning.svg'
 
 import './styles.css'
 
 function Register(){
+  const history = useHistory()
+
+  var userId = window.location.href.toString().replace("http://localhost:3000/register/", '')
+
+  const [title, setTitle] = useState('')
+  const [author, setAuthor] = useState('')
+  const [genre, setGenre] = useState('')
+  const [resume, setResume] = useState('')
+    
+  async function handleSubmit(event) {
+    event.preventDefault()
+
+    await api.post(`register/${userId}`, {
+      userId, 
+      title,
+      author, 
+      genre, 
+      resume
+    }).then(() => {
+      alert('Cadastro realizado com sucesso!')
+      history.push(`/bookcase/${userId}`)
+    }).catch((err) => {
+      alert(`${err}`)
+    })
+  }
+
   return (
     <div id="page-user-form" className="container">
       <Header 
@@ -16,35 +43,34 @@ function Register(){
         description="Cadastre seu livro"
       />
       <main>
-      <form >
+      <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Dados do livro</legend>
             
             <Input 
               name="title" 
               label="Título" 
-              // value={name} 
-              // onChange={(event) => { setName(event.target.value) }}
+              value={title} 
+              onChange={(event) => { setTitle(event.target.value) }}
             />
             <Input 
               name="author" 
               label="Autor"
-              // value={password} 
-              // type="password"
-              // onChange={(event) => { setPassword(event.target.value) }}
+              value={author} 
+              onChange={(event) => { setAuthor(event.target.value) }}
             /> 
             <Input 
               name="genre" 
               label="Gênero"
-              // value={password} 
-              // type="password"
-              // onChange={(event) => { setPassword(event.target.value) }}
+              value={genre} 
+              onChange={(event) => { setGenre(event.target.value) }}
             />     
             <Textarea 
               name="resume" 
               label="Resumo"
-              // value={bio} 
-              // onChange={(event) => { setBio(event.target.value) }} 
+              type="textarea"
+              value={resume} 
+              onChange={(event) => { setResume(event.target.value) }}
             />      
           </fieldset>
           <footer>

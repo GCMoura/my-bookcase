@@ -23,6 +23,8 @@ function Account(){
     }).then(() => {
       alert('Cadastro realizado com sucesso!')
       history.push('/login')
+    }).catch((err) => {
+      alert(`${err}`)
     })
   }
 

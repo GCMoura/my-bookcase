@@ -15,7 +15,7 @@ function Routes() {
         <Route path='/login' component={Login}/>
         <Route path='/account' component={Account}/>
         <Route path='/bookcase/*' component={Bookcase}/>
-        <Route path='/register' component={Register}/>
+        <Route path='/register/*' component={Register}/>
       </Switch>
     </BrowserRouter>
   )
