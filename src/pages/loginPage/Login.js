@@ -34,6 +34,7 @@ function Login(){
   return (
     <div id="page-user-form" className="container">
       <Header 
+        path='/'
         title="Minha Estante"
         description="Faça seu login"
       />

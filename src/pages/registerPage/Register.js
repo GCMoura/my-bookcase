@@ -14,6 +14,8 @@ function Register(){
 
   var userId = window.location.href.toString().replace("http://localhost:3000/register/", '')
 
+  const path = `/bookcase/${userId}`
+
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [genre, setGenre] = useState('')
@@ -22,7 +24,7 @@ function Register(){
   async function handleSubmit(event) {
     event.preventDefault()
 
-    await api.post(`register/${userId}`, {
+    await api.put(`register/${userId}`, {
       userId, 
       title,
       author, 
@@ -32,13 +34,14 @@ function Register(){
       alert('Cadastro realizado com sucesso!')
       history.push(`/bookcase/${userId}`)
     }).catch((err) => {
-      alert(`${err}`)
+      alert(err)
     })
   }
 
   return (
     <div id="page-user-form" className="container">
       <Header 
+        path={path}
         title="Minha Estante"
         description="Cadastre seu livro"
       />

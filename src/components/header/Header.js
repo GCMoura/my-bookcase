@@ -11,7 +11,7 @@ function Header(props) {
     <header className="page-header">
         <div className="top-bar-container">
 
-          <Link to='/'>
+          <Link to={ props.path }>
             <img src={ backIcon } alt="Voltar"/> 
           </Link>
 

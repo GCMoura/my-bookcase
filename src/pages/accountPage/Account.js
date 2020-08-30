@@ -24,13 +24,14 @@ function Account(){
       alert('Cadastro realizado com sucesso!')
       history.push('/login')
     }).catch((err) => {
-      alert(`${err}`)
+      alert('Usuário já cadastrado')
     })
   }
 
   return (
     <div id="page-user-form" className="container">
       <Header 
+        path='/'
         title="Minha Estante"
         description="Crie sua conta"
       />

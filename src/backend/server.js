@@ -4,26 +4,27 @@ const server = express()
 const router =  express.Router()
 const fs = require('fs')
 const {  v4  } = require('uuid')
+const bcrypt = require('bcrypt')
 
 server.use(express.json({extend: true}))
 server.use(cors())
 
 // Read user database
 const readFile = () => {
-    const content = fs.readFileSync('src/data/user.json', 'utf-8')
+    const content = fs.readFileSync('src/data/db.json', 'utf-8')
     return JSON.parse(content)
 }
 
 // Create User
 const writeFile = (content) => {
     const updateFile = JSON.stringify(content)
-    fs.writeFileSync('src/data/user.json', updateFile, 'utf-8')
+    fs.writeFileSync('src/data/db.json', updateFile, 'utf-8')
 }
 
 // Verify user duplicity
 const verifyData = (flag, db, data) => {   
     for(let i = 0; i < db.length; i++){
-        if(db[i].name === data.name && db[i].password === data.password) {
+        if(db[i].name === data.name && bcrypt.compare(data.password, db[i].password)) {
             flag = true
         } 
     }
@@ -34,40 +35,29 @@ const verifyData = (flag, db, data) => {
 const verifyId = (db, data) => {
     var userId;
     for(let i = 0; i < db.length; i++){
-        if(db[i].name === data.name && db[i].password === data.password) {
+        if(db[i].name === data.name && bcrypt.compare(data.password, db[i].password)) {
             userId = db[i].id
         } 
     }
     return userId
 }
 
-//Read book db
-const readBookDB = () => {
-    const content = fs.readFileSync('src/data/db.json', 'utf-8')
-    return JSON.parse(content)
-}
-// Create Book register
-const writeBookDB = (content) => {
-    const updateFile = JSON.stringify(content)
-    fs.writeFileSync('src/data/db.json', updateFile, 'utf-8')
-}
 // Verify book duplicity
-const verifyBookData = (flag, db, data) => {   
-    for(let i = 0; i < db.length; i++){
-        if(db[i].title === data.title && db[i].author === data.author) {
+const verifyBookData = (flag, book, data) => {   
+    for(let i = 0; i < book.length; i++){
+        if(book[i].title === data.title && book[i].author === data.author){
             flag = true
-        } 
+        }
     }
     return flag
 }
 
-
 // Read Database and return user id
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const { name, password } = req.body
     const currentData = readFile()
 
-    const userId = verifyId( currentData, {name, password})
+    const userId = await verifyId( currentData, {name, password})
 
     if(userId !== "") {
         res.send(userId)
@@ -75,9 +65,14 @@ router.post('/login', (req, res) => {
 })
 
 // Create User
-router.post('/account', (req, res) => {
-    const { name, password } = req.body
+router.post('/account', async (req, res) => {
+    var { name, password } = req.body
     const currentData = readFile()
+
+    const hash = await bcrypt.hash(password, 10)
+    password = hash
+
+    var book = []
 
     const id = v4()
 
@@ -86,34 +81,46 @@ router.post('/account', (req, res) => {
     const returnVerifyData = verifyData(flag, currentData, {name, password})
 
     if(returnVerifyData === false) {
-        currentData.push({ id, name, password })
+        currentData.push({ id, name, password, book })
         writeFile(currentData)
         res.send({ id, name, password })
-    } else {
-        alert('Usuário já cadastrado')
     }
 })
 
 //Register book
-router.post('/register/:id', (req, res) => {
+router.put('/register/:id', (req, res) => {
     var { userId, title, author, genre, resume } = req.body
-    const currentData = readBookDB()
+    const currentData = readFile()
 
     title = title.toLowerCase()
     author = author.toLowerCase()
     genre = genre.toLowerCase()
 
     var flag = false
-   
-    const returnVerifyBookData = verifyBookData(flag, currentData, { title, author, genre })
+
+    const selectedUser = currentData.findIndex(user => user.id === userId)
+
+    var { id, name, password, book } = currentData[selectedUser]
+
+    const returnVerifyBookData = verifyBookData(flag, book, { title, author })   
 
     if(returnVerifyBookData === false){
-        currentData.push({ userId, title, author, genre, resume })
-        writeBookDB(currentData)
+        const update = {
+            title, 
+            author, 
+            genre, 
+            resume
+        }
+        book.push(update)
+        currentData[selectedUser] = {
+            id,
+            name,
+            password,
+            book
+        }
+        writeFile(currentData)
         res.send({ userId, title, author, genre, resume })
-    } else {
-        alert('Livro já cadastrado')
-    }
+    } 
 })
 
 
