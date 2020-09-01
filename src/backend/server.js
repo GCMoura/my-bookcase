@@ -24,7 +24,7 @@ const writeFile = (content) => {
 // Verify user duplicity
 const verifyData = (flag, db, data) => {   
     for(let i = 0; i < db.length; i++){
-        if(db[i].name === data.name && bcrypt.compare(data.password, db[i].password)) {
+        if(db[i].name === data.name) {
             flag = true
         } 
     }
@@ -32,10 +32,11 @@ const verifyData = (flag, db, data) => {
 }
 
 //Return userId
-const verifyId = (db, data) => {
+const verifyId = async (db, data) => {
     var userId;
     for(let i = 0; i < db.length; i++){
-        if(db[i].name === data.name && bcrypt.compare(data.password, db[i].password)) {
+        const compareId = await bcrypt.compare(data.password, db[i].password)
+        if(db[i].name === data.name && compareId === true) {
             userId = db[i].id
         } 
     }
@@ -58,7 +59,6 @@ router.post('/login', async (req, res) => {
     const currentData = readFile()
 
     const userId = await verifyId( currentData, {name, password})
-
     if(userId !== "") {
         res.send(userId)
     }
@@ -69,21 +69,25 @@ router.post('/account', async (req, res) => {
     var { name, password } = req.body
     const currentData = readFile()
 
+    const id = v4()
+
     const hash = await bcrypt.hash(password, 10)
     password = hash
 
     var book = []
 
-    const id = v4()
-
     var flag = false
 
-    const returnVerifyData = verifyData(flag, currentData, {name, password})
+    const returnVerifyData = verifyData(flag, currentData, {name})
 
     if(returnVerifyData === false) {
         currentData.push({ id, name, password, book })
+
         writeFile(currentData)
-        res.send({ id, name, password })
+
+        res.send({ id })
+    } else {
+        res.send()
     }
 })
 
@@ -119,10 +123,24 @@ router.put('/register/:id', (req, res) => {
             book
         }
         writeFile(currentData)
-        res.send({ userId, title, author, genre, resume })
-    } 
+        res.send({ userId })
+    } else {
+        res.send()
+    }
 })
 
+router.get('/bookcase/:id', (req, res) => {
+    const { id } = req.params
+    const currentData = readFile()
+
+    const selectedUser = currentData.findIndex(user => user.id === id)
+
+    var { book } = currentData[selectedUser]
+
+    console.log(book)
+
+    res.send(book)
+})
 
 server.use(router)
 

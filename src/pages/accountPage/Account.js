@@ -17,15 +17,17 @@ function Account(){
   async function handleCreateUser(event){
     event.preventDefault()
 
-    await api.post('account', {
+    const response = await api.post('account', {
       name, 
       password
-    }).then(() => {
+    })
+    
+    if(response.data.length !== 0){
       alert('Cadastro realizado com sucesso!')
       history.push('/login')
-    }).catch((err) => {
-      alert('Usuário já cadastrado')
-    })
+    } else {
+      alert('Usuário já cadastrado. Refaça seu cadastro')
+    }
   }
 
   return (

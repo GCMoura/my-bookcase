@@ -24,22 +24,23 @@ function Register(){
   async function handleSubmit(event) {
     event.preventDefault()
 
-    await api.put(`register/${userId}`, {
+    const response = await api.put(`register/${userId}`, {
       userId, 
       title,
       author, 
       genre, 
       resume
-    }).then(() => {
+    })
+    if(response.data.length !== 0){
       alert('Cadastro realizado com sucesso!')
       history.push(`/bookcase/${userId}`)
-    }).catch((err) => {
-      alert(err)
-    })
+    } else {
+      alert('Livro já cadastrado.')
+    }
   }
 
   return (
-    <div id="page-user-form" className="container">
+    <div id="     " className="container">
       <Header 
         path={path}
         title="Minha Estante"
