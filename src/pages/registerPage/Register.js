@@ -7,8 +7,6 @@ import api from '../../backend/api'
 
 import warningIcon from '../../assets/icons/warning.svg'
 
-import './styles.css'
-
 function Register(){
   const history = useHistory()
 
@@ -40,11 +38,10 @@ function Register(){
   }
 
   return (
-    <div id="     " className="container">
+    <div id="page-user-form" className="container">
       <Header 
         path={path}
         title="Minha Estante"
-        description="Cadastre seu livro"
       />
       <main>
       <form onSubmit={handleSubmit}>

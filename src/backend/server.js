@@ -137,8 +137,6 @@ router.get('/bookcase/:id', (req, res) => {
 
     var { book } = currentData[selectedUser]
 
-    console.log(book)
-
     res.send(book)
 })
 

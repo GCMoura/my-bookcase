@@ -1,14 +1,14 @@
-.page-header{
-  height: 300px;
-}
-#page-teacher-form{
+/* .page-header{
+  height: 200px;
+} */
+/* #page-teacher-form{
   width: 100vw;
   height: 100vh;
 }
 #page-teacher-form .page-header .header-content{
-  margin-bottom: 6.4rem;
-}
-#page-teacher-form main {
+  margin-bottom: 1.4rem;
+} */
+/* main {
   background: var(--font);
   width: 100%;
   max-width: 74rem;
@@ -16,14 +16,14 @@
   margin: -3.2rem auto 3.2rem;
   padding-top: 6.4rem;
   overflow: hidden;
-}
+} */
 
-#page-teacher-form main fieldset{
+/* #page-teacher-form main fieldset{
   border: 0;
   padding: 0 2.4rem;
-}
+} */
 
-#page-teacher-form main fieldset legend{
+/* #page-teacher-form main fieldset legend{
   font: 700 2.4rem Archivo;
   color: var(--font-black);
   margin-bottom: 2.4rem;
@@ -33,9 +33,9 @@
   width: 100%;
   padding-bottom: 1.6rem;
   border-bottom: 1px solid var(--input-border-line);
-}
+} */
 
-#page-teacher-form main label{
+/* #page-teacher-form main label{
   color: var(--font-black);
 }
 #page-teacher-form main footer{
@@ -43,19 +43,19 @@
   background : var(--form-background);
   border-top: 1px solid var(--input-border-line);
   margin-top: 6.4rem;
-}
-#page-teacher-form main footer p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-  color: var(--font-black);
-}
-#page-teacher-form main footer p img{
-  margin-right: 2rem;
-}
-#page-teacher-form main footer button{
+} */
+  /* #page-teacher-form main footer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: var(--font-black);
+  }
+  #page-teacher-form main footer p img{
+    margin-right: 2rem;
+  } */
+/* #page-teacher-form main footer button{
   width: 100%;
   height: 5.6rem;
   background: var(--button-blue-light);
@@ -73,9 +73,9 @@
 }
 #page-teacher-form main footer button:hover {
   background: var(--button-blue-dark);
-}
+} */
 
-@media(min-width: 700px){
+/* @media(min-width: 700px){
   #page-teacher-form{
     max-width: 100vw;
   }
@@ -99,4 +99,4 @@
     width: 20rem;
     margin-top: 0;
   }
-}
+} */

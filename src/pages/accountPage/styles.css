@@ -72,16 +72,16 @@
   background: var(--button-blue-dark);
 }
 
-@media(min-width: 700px){
-  #page-user-form{
+ @media(min-width: 700px){
+  /* #page-user-form{
     max-width: 100vw;
     max-height: 100vh;
-  }
+  } */
 
   #page-user-form main{
     margin: -6.5rem auto 3.2rem;
   }
-  #page-user-form main fieldset{
+  /* #page-user-form main fieldset{
     padding: 0 6.4rem;
   }
 
@@ -97,5 +97,5 @@
   #page-user-form main footer button {
     width: 20rem;
     margin-top: 0;
-  }
-}
+  } */
+} 

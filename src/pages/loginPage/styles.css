@@ -2,10 +2,10 @@
   width: 100vw;
   height: 100vh;
 }
-#page-user-form .page-header .header-content{
+/* #page-user-form .page-header .header-content{
   margin-bottom: 2.4rem;
-}
-#page-user-form main {
+} */
+/* #page-user-form main {
   background: var(--font);
   width: 100%;
   max-width: 74rem;
@@ -13,9 +13,9 @@
   margin: -3.2rem auto 3.2rem;
   padding-top: 2.4rem;
   overflow: hidden;
-}
+} */
 
-#page-user-form main fieldset{
+/* #page-user-form main fieldset{
   border: 0;
   padding: 0 2.4rem;
 }
@@ -29,7 +29,7 @@
   width: 100%;
   padding-bottom: 1.6rem;
   border-bottom: 1px solid var(--input-border-line);
-}
+} */
 #page-user-form main fieldset p {
   margin-top: 30px;
   margin-bottom: -30px;
@@ -46,12 +46,12 @@
   font-size: 1.8rem;
   color: var(--font-black);
 }
-#page-user-form main footer{
+/* #page-user-form main footer{
   padding: 2rem 2rem;
   background : var(--font);
   border-top: 1px solid var(--input-border-line);
-}
-#page-user-form main footer p {
+} */
+/* #page-user-form main footer p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,8 +61,8 @@
 }
 #page-user-form main footer p img{
   margin-right: 2rem;
-}
-#page-user-form main footer button{
+} */
+/* #page-user-form main footer button{
   width: 100%;
   height: 5.6rem;
   background: var(--button-blue-light);
@@ -80,9 +80,9 @@
 }
 #page-user-form main footer button:hover {
   background: var(--button-blue-dark);
-}
+} */
 
-@media(min-width: 700px){
+/* @media(min-width: 700px){
   #page-user-form{
     max-width: 100vw;
   }
@@ -105,4 +105,4 @@
     width: 20rem;
     margin-top: 0;
   }
-}
+} */

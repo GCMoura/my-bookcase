@@ -1,15 +1,1 @@
-[
-  {
-    "id": "ed0f8220-376c-4530-9cf0-c8bcdf1ee707",
-    "name": "gabriel",
-    "password": "$2b$10$zk7SyvXUkC.6rnscxyHjPOYYX8rLgbblsa9J72fUwKBLz2B4dddjW",
-    "book": [
-      {
-        "title": "livro",
-        "author": "autor",
-        "genre": "genero",
-        "resume": "resumo"
-      }
-    ]
-  }
-]
+[{"id":"ed0f8220-376c-4530-9cf0-c8bcdf1ee707","name":"gabriel","password":"$2b$10$zk7SyvXUkC.6rnscxyHjPOYYX8rLgbblsa9J72fUwKBLz2B4dddjW","book":[{"title":"livro","author":"autor","genre":"genero","resume":"resumo"},{"title":"livro2","author":"autor2","genre":"genero2","resume":"resumo 2"}]}]
