@@ -92,7 +92,8 @@
   }
   #page-user-form #title #register{
     width: 700px;
-  height: 5.6rem;
+    height: 5.6rem;
+    font: 700 2.2rem Archivo;
   }
   #page-user-form #title input{
     width: 450px;
@@ -101,5 +102,6 @@
   #page-user-form #title #book-search #search{
     width: 250px;
     height: 5.2rem;
+    font: 700 2.2rem Archivo;
   }
 }

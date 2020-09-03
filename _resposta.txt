@@ -1,0 +1,99 @@
+
+class HalfEdge{
+  a: vertice inicial
+  b: vertice final
+  o: half edge oposta
+  f: face incidente
+  n: proxima half HalfEdge
+
+  retornaFace(h){ //retorna a prima face analisada
+    retorna f
+  }
+
+  verificaOutraFace(v, h, triangulos){ //h = edge inicial, v = vertice passado na entrada no programa
+    face = verificaArestaOposta(h, v, triangulos)
+    if(face == false){
+      retorna triangulos
+    }
+  }
+
+
+  verificaArestaOposta(h, v, triangulos){ //verificar se a aresta inicial tem aresta oposta
+    if(o == true){ //tem aresta oposta na direção contrária
+      //tem que verificar se algum vertice dessa nova face é igual a v
+     
+      verificaVertices(o, v, triangulo)
+
+    } else { //não tem aresta oposta, verifica a próxima aresta
+      if(n == true){ //repete a operação enquanto houver próxima aresta
+        verificaArestaOposta(n, v)
+      } else { //se não tiver mais próximas arestas, acabou a verificação
+        return false
+      }
+      
+    }
+  }
+
+  verificaVertices(h, v, triangulo){ //verifica os vértices da aresta
+    if(a == v){ //se o vertice inicial for igual a v
+      marca = false
+      for(i = 0; i < triangulos.length; i++){
+        if(triangulos[i] == f){
+          marca = true
+        }
+      }
+      if(marca == false){
+        triangulos.push(f)
+      }
+      verificaArestaOposta(n, v) //verifica se a proxima aresta tem aresta oposta
+
+    } else if (b == v){ //se o vertice final for igual a v
+
+      marca = false
+      for(i = 0; i < triangulos.length; i++){
+        if(triangulos[i] == f){
+          marca = true
+        }
+      }
+      if(marca == false){
+        triangulos.push(f)
+      }
+      verificaArestaOposta(n, v) //verifica se a proxima aresta tem aresta oposta
+
+    } else if(n == true) { //se nenhum dos dois vertices for igual verifica na próxima aresta
+
+      verificaVertices(n, v, triangulo)
+
+    } else { //se nenhum dos vertices das 3 arestas da face não for igual, passa para a proxima face
+      verificaArestaOposta(n, v, triangulos)
+    }
+  }
+}
+
+class Vertex {
+  g: geometria vertice
+  h: hal edge partindo do vertice
+
+  retornaHalfEdge(v){
+    if(v == g){
+      retorna h
+    }
+  }
+}
+
+class Face {
+  e: uma das half edge da face
+}
+
+Entrada -> v
+triangulos = []
+
+vertice = new Vertex()
+edge = vertice.retornaHalfEdge(v) //retorna a half edge
+
+half_edge = new HalfEdge()
+face = half_edge.retornaFace(edge) //retorna a primeira face (triângulo)
+
+triangulos.push(face) //primeiro triangulo é adicionado ao array
+
+resultado = half_edge.verificaOutraFace(v, edge, triangulos)

@@ -141,23 +141,19 @@ router.get('/bookcase/:id', (req, res) => {
     res.send(book)
 })
 
-router.delete('/bookcase/:id', (req, res) =>{
+router.delete('/bookcase/:id/:title/:author', (req, res) =>{
     const { id, title, author } = req.params
     const currentData = readFile()
-
-    console.log({title, author})
     
     const selectedUser = currentData.findIndex(user => user.id === id)
 
     var { book } = currentData[selectedUser]
 
-    console.log(book)
-
     const selectedBook = book.findIndex(book => book.title === title && book.author === author)
-    
-    console.log(selectedBook)
 
     book.splice(selectedBook, 1)
+
+    writeFile(currentData)
 
     res.send(true)
 })

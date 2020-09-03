@@ -13,6 +13,7 @@ function Header(props) {
 
           <Link to={ props.path }>
             <img src={ backIcon } alt="Voltar"/> 
+            <h2>Voltar</h2>
           </Link>
 
           <div className="header-content">

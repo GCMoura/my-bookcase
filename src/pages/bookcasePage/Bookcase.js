@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from '../../backend/api'
-import  BookList from '../../components/bookList/BookList'
+import BookList from '../../components/bookList/BookList'
 
 import './styles.css'
 
@@ -18,7 +18,7 @@ function Bookcase(){
 
   useEffect(() => {
     renderBook()
-  }, [])
+  }, [books])
 
   async function renderBook(){
     const response = await api.get(`bookcase/${userId}`, {
@@ -46,10 +46,7 @@ function Bookcase(){
       
       <main>
             { books.map((book) => {
-              return <BookList
-                key={book.title}
-                {...book}
-                />
+              return <BookList key={book.title} {...book}/>
             })}
       </main>
     </div>
