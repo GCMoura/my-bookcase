@@ -1,4 +1,5 @@
 .page-header {
+  height: 120px;
   flex-direction: column;
   background: var(--background)
 }
@@ -28,6 +29,7 @@
 
 .page-header .header-content strong {
   font: 700 3.6rem Archivo;
+  margin-left: 32px;
   line-height: 4.2rem;
   color: var(--font);
 }
@@ -41,7 +43,7 @@
 
 @media (min-width: 700px) {
   .page-header {
-    height: 280px;
+    height: 150px;
   }
 
   .page-header .top-bar-container {

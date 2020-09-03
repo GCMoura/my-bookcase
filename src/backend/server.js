@@ -93,7 +93,7 @@ router.post('/account', async (req, res) => {
 
 //Register book
 router.put('/register/:id', (req, res) => {
-    var { userId, title, author, genre, resume } = req.body
+    var { userId, title, author, genre, cover, note } = req.body
     const currentData = readFile()
 
     title = title.toLowerCase()
@@ -113,7 +113,8 @@ router.put('/register/:id', (req, res) => {
             title, 
             author, 
             genre, 
-            resume
+            cover,
+            note
         }
         book.push(update)
         currentData[selectedUser] = {
@@ -138,6 +139,27 @@ router.get('/bookcase/:id', (req, res) => {
     var { book } = currentData[selectedUser]
 
     res.send(book)
+})
+
+router.delete('/bookcase/:id', (req, res) =>{
+    const { id, title, author } = req.params
+    const currentData = readFile()
+
+    console.log({title, author})
+    
+    const selectedUser = currentData.findIndex(user => user.id === id)
+
+    var { book } = currentData[selectedUser]
+
+    console.log(book)
+
+    const selectedBook = book.findIndex(book => book.title === title && book.author === author)
+    
+    console.log(selectedBook)
+
+    book.splice(selectedBook, 1)
+
+    res.send(true)
 })
 
 server.use(router)

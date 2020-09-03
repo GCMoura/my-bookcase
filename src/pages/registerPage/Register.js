@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Textarea from '../../components/textarea/Textarea'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
 import api from '../../backend/api'
@@ -17,7 +16,8 @@ function Register(){
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [genre, setGenre] = useState('')
-  const [resume, setResume] = useState('')
+  const [cover, setCover] = useState('')
+  const [note, setNote] = useState('')
     
   async function handleSubmit(event) {
     event.preventDefault()
@@ -27,7 +27,8 @@ function Register(){
       title,
       author, 
       genre, 
-      resume
+      cover, 
+      note
     })
     if(response.data.length !== 0){
       alert('Cadastro realizado com sucesso!')
@@ -66,13 +67,23 @@ function Register(){
               value={genre} 
               onChange={(event) => { setGenre(event.target.value) }}
             />     
-            <Textarea 
-              name="resume" 
-              label="Resumo"
-              type="textarea"
-              value={resume} 
-              onChange={(event) => { setResume(event.target.value) }}
-            />      
+            <Input 
+              name="cover" 
+              label="Capa"
+              value={cover} 
+              onChange={(event) => { setCover(event.target.value) }}
+            />     
+            <Input 
+              name="note" 
+              label="Nota"
+              type='number'
+              value={note}
+              max='5'
+              min='0'
+              step='0.1'
+              onChange={(event) => { setNote(event.target.value) }}
+            /> 
+                  
           </fieldset>
           <footer>
             <p>

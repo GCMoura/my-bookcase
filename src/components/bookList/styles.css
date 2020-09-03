@@ -13,17 +13,32 @@
 }
 #book-data{
   display: flex;
-  flex-direction: column;
   align-items: center;
+}
+#book-data div:nth-child(1){
+  width: 200px;
 }
 #book-data p{
   font: 700 1.2rem Archivo;
 }
+#book-data p:nth-child(1){
+  margin-top: 0.8rem;
+}
+
+#book-data img{
+  cursor: pointer;
+  width: 20px;
+  height: 25px;
+}
 #book-cover{
-  border: 1px solid var(--input-border-line);
   border-radius: 0.8rem;
-  margin-right: 2.0rem;
+  margin-right: 3.0rem;
   width: 8.0rem;
+  height: 10rem;
+}
+#book-cover img{
+  border-radius: 0.8rem 0 0 0.8rem;
+  width: 9rem;
   height: 10rem;
 }
 
@@ -34,5 +49,24 @@
   #book{
     margin: 0 auto 0.2rem;
     width: 690px;
+  }
+  #book-data div:nth-child(1){
+    width: 490px;
+  }
+  #book-data img{
+    width: 40px;
+    height: 45px;
+  }
+  #book-data p{
+  font: 700 1.8rem Archivo;
+  }
+  #book-cover{
+    margin-right: 5.0rem;
+    width: 10.0rem;
+    height: 13rem;
+  } 
+  #book-cover img{
+    width: 11rem;
+    height: 13rem;
   }
 }

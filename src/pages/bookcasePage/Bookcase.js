@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import db from '../../data/db.json'
 import api from '../../backend/api'
-import BookList from '../../components/bookList/BookList'
+import  BookList from '../../components/bookList/BookList'
 
 import './styles.css'
 
