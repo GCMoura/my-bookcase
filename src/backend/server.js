@@ -130,6 +130,7 @@ router.put('/register/:id', (req, res) => {
     }
 })
 
+//Return Books
 router.get('/bookcase/:id', (req, res) => {
     const { id } = req.params
     const currentData = readFile()
@@ -141,6 +142,8 @@ router.get('/bookcase/:id', (req, res) => {
     res.send(book)
 })
 
+
+//Delete Book
 router.delete('/bookcase/:id/:title/:author', (req, res) =>{
     const { id, title, author } = req.params
     const currentData = readFile()

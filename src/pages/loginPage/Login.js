@@ -36,12 +36,11 @@ function Login(){
       <Header 
         path='/'
         title="Minha Estante"
-        description="Faça seu login"
       />
       <main>
       <form onSubmit={handleUserLogin}>
           <fieldset>
-            <legend>Seus dados</legend>
+            <legend>Faça seu login</legend>
             
             <Input 
               name="name" 

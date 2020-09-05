@@ -24,44 +24,10 @@
   line-height: 4.2rem;
   margin-top: 0.8rem;
 }
-#page-user-form #title #book-search{
-  display: flex;
-}
-#page-user-form #title input{
-  width: 60%;
-  height: 4.2rem;
-  margin-top: 0.8rem;
-  border-radius: 0.8rem;
-  background: var(--font);
-  border: 1px solid var(--input-border-line);
-  outline: 0;
-  padding: 0 1.6rem;
-  font: 1.8rem Archivo;
-  color: var(--color-text-input);
-}
-#page-user-form #title #book-search #search{
-  width: 40%;
-  height: 4.2rem;
-  background: var(--button-yelow-light);
-  color: var(--font);
-  border: 0;
-  border-radius: 0.8rem;
-  cursor: pointer;
-  font: 700 1.8rem Archivo;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  margin-top: 0.8rem;
-}
-#page-user-form #title #book-search #search:hover {
-  background: var(--button-yelow-dark);
-}
 #page-user-form #title #register{
   width: 90%;
   height: 4.6rem;
-  background: var(--button-blue-light);
+  background: var(--button-red-light);
   color: var(--font);
   border: 0;
   border-radius: 0.8rem;
@@ -75,7 +41,7 @@
   margin-top: 1.2rem;
 }
 #page-user-form #title #register:hover{
-  background: var(--button-blue-dark);
+  background: var(--button-red-dark);
 }
 
 
@@ -93,15 +59,6 @@
   #page-user-form #title #register{
     width: 700px;
     height: 5.6rem;
-    font: 700 2.2rem Archivo;
-  }
-  #page-user-form #title input{
-    width: 450px;
-    height: 5.2rem;
-  }
-  #page-user-form #title #book-search #search{
-    width: 250px;
-    height: 5.2rem;
     font: 700 2.2rem Archivo;
   }
 }

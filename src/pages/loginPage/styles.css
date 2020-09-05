@@ -4,8 +4,8 @@
 }
 /* #page-user-form .page-header .header-content{
   margin-bottom: 2.4rem;
-} */
-/* #page-user-form main {
+}
+#page-user-form main {
   background: var(--font);
   width: 100%;
   max-width: 74rem;
@@ -70,7 +70,7 @@
   border: 0;
   border-radius: 0.8rem;
   cursor: pointer;
-  font: 700 1.8rem Archivo;
+  font: 700 2rem Archivo;
   display: flex;
   align-items: center;
   justify-content: center;

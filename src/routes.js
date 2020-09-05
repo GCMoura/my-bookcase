@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Landing from './pages/landingPage/Landing'
+import Home from './pages/homePage/Home'
 import Login from './pages/loginPage/Login'
 import Account from './pages/accountPage/Account'
 import Bookcase from './pages/bookcasePage/Bookcase'
@@ -16,6 +17,7 @@ function Routes() {
         <Route path='/account' component={Account}/>
         <Route path='/bookcase/*' component={Bookcase}/>
         <Route path='/register/*' component={Register}/>
+        <Route path='/*' component={Home}/>
       </Switch>
     </BrowserRouter>
   )

@@ -35,7 +35,6 @@ function Account(){
       <Header 
         path='/'
         title="Minha Estante"
-        description="Crie sua conta"
       />
 
       <main>
