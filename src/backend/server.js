@@ -96,9 +96,9 @@ router.put('/register/:id', (req, res) => {
     var { userId, title, author, genre, cover, note } = req.body
     const currentData = readFile()
 
-    title = title.toLowerCase()
-    author = author.toLowerCase()
-    genre = genre.toLowerCase()
+    // title = title.toLowerCase()
+    // author = author.toLowerCase()
+    // genre = genre.toLowerCase()
 
     var flag = false
 

@@ -1,0 +1,21 @@
+.alert {
+  padding: 10px;
+  position: absolute;
+  top: -70px;
+  font: 700 1.8rem Archivo;
+  color: var(--font);
+  width: 90%;
+  height: 7rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+@media(min-width: 700px) {
+  .alert {
+    width: 500px;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
+import buildAlert from '../../utils/buildAlert'
 import api from '../../backend/api'
 
 import warningIcon from '../../assets/icons/warning.svg'
@@ -31,10 +32,12 @@ function Register(){
       note
     })
     if(response.data.length !== 0){
-      alert('Cadastro realizado com sucesso!')
-      history.push(`/bookcase/${userId}`)
+      buildAlert('Cadastro realizado com sucesso!', '#215992')
+      setTimeout(() => {
+        history.push(`/bookcase/${userId}`)
+      }, 3000);
     } else {
-      alert('Livro já cadastrado.')
+      buildAlert('Livro já cadastrado.', '#dd614a')
     }
   }
 

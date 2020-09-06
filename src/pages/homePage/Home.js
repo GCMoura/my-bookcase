@@ -2,8 +2,8 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import landingImg from '../../assets/images/home.svg'
-import loginIcon from '../../assets/icons/livro.svg'
+import homeImg from '../../assets/images/home.svg'
+import livroIcon from '../../assets/icons/livro.svg'
 
 function Home () {
   
@@ -19,11 +19,11 @@ function Home () {
           <h2>Todos os seus livros em um só lugar</h2>
         </div>
 
-        <img src={ landingImg } alt="Hero Img" className="hero-image"/>
+        <img src={ homeImg } alt="Hero Img" className="hero-image"/>
 
         <div className="button-login">
           <Link to={path} className="login">
-            <img src={ loginIcon } alt="Login"/>
+            <img src={ livroIcon } alt="Livro"/>
             Minha estante
           </Link>
         </div>
@@ -31,6 +31,7 @@ function Home () {
       </div>
     </div>
   )
+  
 }
 
 export default Home

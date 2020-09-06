@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
+import buildAlert from '../../utils/buildAlert'
 import api from '../../backend/api'
 
 import warningIcon from '../../assets/icons/warning.svg'
@@ -24,10 +25,12 @@ function Login(){
     })
 
     if(response.data.length !== 0){
-      alert('Login efetuado com sucesso')      
-      history.push(`/bookcase/${response.data}`)
+      buildAlert('Login efetuado com sucesso', '#215992')
+      setTimeout(() => {
+        history.push(`/${response.data}`)
+      }, 3000);
     } else {
-      alert('Usuário ou senha incorretos. Por favor refaça o seu login.')
+      buildAlert('Usuário ou senha incorreto. Por favor refaça o seu login.', '#dd614a')
     }
   }
 

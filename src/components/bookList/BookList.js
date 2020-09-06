@@ -1,5 +1,6 @@
 import React from 'react'
 import deleteIcon from '../../assets/icons/delete.svg'
+import buildAlert from '../../utils/buildAlert'
 import api from '../../backend/api'
 
 import './styles.css'
@@ -20,7 +21,7 @@ function BookList(props){
       }
     })
     if(response.data === true){
-      alert('Livro removido com sucesso.')
+      buildAlert('Livro removido com sucesso.', '#215992')
     }
     
   }
