@@ -1,6 +1,9 @@
 {
   "name": "my-bookcase",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.x"
+  },
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
