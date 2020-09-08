@@ -163,9 +163,7 @@ router.delete('/bookcase/:id/:title/:author', (req, res) =>{
 
 server.use(router)
 
-const port = 'https://my-bookcase.herokuapp.com/'
-
-server.listen(port, () =>{
+server.listen(3333, () =>{
     console.log('Servidor rodando')
 })
 

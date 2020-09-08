@@ -16,18 +16,13 @@ function Login(){
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
 
-  function handleUserLogin(event){
+  async function handleUserLogin(event){
     event.preventDefault()
 
-    const url = 'https://my-bookcase.herokuapp.com/'
-
-    fetch(url)
-      .then(async () => {
-        const response = await api.post('login', {
-          name, 
-          password 
-        })
-      })   
+    const response = await api.post('login', {
+      name, 
+      password 
+    })
 
     if(response.data.length !== 0){
       buildAlert('Login efetuado com sucesso', '#215992')
