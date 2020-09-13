@@ -1,8 +1,8 @@
-# Title
+# My Bookcase
 This application aims to serve like a bookcase, where you can register the books you read and give note for then. 
 
 ## Table of Contents
-- [Title](#title)
+- [My Bookcase](#my-bookcase)
   - [Table of Contents](#table-of-contents)
   - [Screenshots (desktop and mobile)](#screenshots-desktop-and-mobile)
   - [Getting Started](#getting-started)
@@ -12,8 +12,8 @@ This application aims to serve like a bookcase, where you can register the books
   - [License](#license)
 
 ## Screenshots (desktop and mobile)
-![Screenshot-1](https://raw.githubusercontent.com/GCMoura/Rijksmuseum/master/screenshots/screenshot1.png)
-![Screenshot-2](https://raw.githubusercontent.com/GCMoura/Rijksmuseum/master/screenshots/screenshot-2.png)
+![Screenshot-1](https://raw.githubusercontent.com/GCMoura/my-bookcase/master/screenshots/screenshot1.png)
+![Screenshot-2](https://raw.githubusercontent.com/GCMoura/my-bookcase/master/screenshots/screenshot2.png)
 
 ## Getting Started
 This page was created using HTML5, CSS3 and Vanilla Javascript, with ReactJS.
