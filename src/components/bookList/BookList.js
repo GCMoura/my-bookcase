@@ -1,4 +1,5 @@
 import React from 'react'
+import firebase from '../../config/config'
 import deleteIcon from '../../assets/icons/delete.svg'
 import buildAlert from '../../utils/buildAlert'
 import api from '../../backend/api'
@@ -9,20 +10,49 @@ function BookList(props){
 
   var userId = window.location.href.toString().replace("http://localhost:3000/bookcase/", '')
   var title = props.title
-  var author = props.author
 
-  async function deleteBook(){
+  function deleteBook(){
 
-    const response = await api.delete(`bookcase/${userId}/${title}/${author}`, {
-      params: {
-        userId,
-        title,
-        author
-      }
-    })
-    if(response.data === true){
-      buildAlert('Livro removido com sucesso.', '#215992')
+    let result = window.confirm('Confirma a exclusão?')
+
+    if(result){
+      console.log('sim')
     }
+
+    let db
+    let id
+    
+    firebase.database().ref('bookcase').on('value', (snapshot) => {
+      snapshot.forEach((item) => {
+        if(item.val().title === title){
+          db = item.ref.path.pieces_[0]
+          id = item.ref.path.pieces_[1]
+        }
+      })
+    })
+
+    // firebase.database().ref()
+    //   .child(db + '/' + id)
+    //   .remove()
+    //   .then( () => {
+    //     alert('Livro excluído')
+    // })
+    //   .catch(error => {
+    //     console.log(error.code)
+    //     console.log(error.message)
+    //     alert('Falha ao excluir, verifique o erro no console')
+    // })
+
+    // const response = await api.delete(`bookcase/${userId}/${title}/${author}`, {
+    //   params: {
+    //     userId,
+    //     title,
+    //     author
+    //   }
+    // })
+    // if(response.data === true){
+    //   buildAlert('Livro removido com sucesso.', '#215992')
+    // }
     
   }
   return (

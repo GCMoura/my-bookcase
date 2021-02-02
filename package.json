@@ -13,6 +13,7 @@
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "firebase": "^8.2.5",
     "json-server": "^0.16.1",
     "package-lock.json": "^1.0.0",
     "react": "^16.13.1",
@@ -22,9 +23,7 @@
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "server": "node src/backend/server.js",
-    "dev": "concurrently \"react-scripts start\" \"npm run server\"",
-    "start": "npm run server",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

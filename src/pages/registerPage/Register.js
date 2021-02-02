@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import firebase from '../../config/config'
 import { useHistory } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
@@ -23,22 +24,47 @@ function Register(){
   async function handleSubmit(event) {
     event.preventDefault()
 
-    const response = await api.put(`register/${userId}`, {
+    var data ={
       userId, 
       title,
       author, 
       genre, 
       cover, 
       note
+    }
+
+    firebase.database().ref('bookcase').push(data)
+    .then(() => {
+      alert('livro cadastrado com sucesso')
     })
-    if(response.data.length !== 0){
-      buildAlert('Cadastro realizado com sucesso!', '#215992')
+    .then(() => {
       setTimeout(() => {
         history.push(`/bookcase/${userId}`)
-      }, 3000);
-    } else {
-      buildAlert('Livro já cadastrado.', '#dd614a')
-    }
+      }, 2000);
+    })
+    .catch(error => {
+      console.log(error.code)
+      console.log(error.message)
+      alert('Falha ao cadastrar, verifique o erro no console')
+    })
+
+
+    // const response = await api.put(`register/${userId}`, {
+    //   userId, 
+    //   title,
+    //   author, 
+    //   genre, 
+    //   cover, 
+    //   note
+    // })
+    // if(response.data.length !== 0){
+    //   buildAlert('Cadastro realizado com sucesso!', '#215992')
+    //   setTimeout(() => {
+    //     history.push(`/bookcase/${userId}`)
+    //   }, 3000);
+    // } else {
+    //   buildAlert('Livro já cadastrado.', '#dd614a')
+    // }
   }
 
   return (

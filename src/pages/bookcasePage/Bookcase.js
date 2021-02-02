@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import firebase from '../../config/config'
 import { useHistory } from 'react-router-dom'
 import api from '../../backend/api'
 import BookList from '../../components/bookList/BookList'
@@ -18,25 +19,46 @@ function Bookcase(){
   useEffect(() => { 
     let isParam = true
     renderBook()
-      .then( book => {
-      if (isParam) {
-        setBooks(book)
-      }
-    })
-    return () => isParam = false  
-  }, [books])
+    //   .then( book => {
+    //   if (isParam) {
+    //     setBooks(book)
+    //   }
+    // })
+    // return () => isParam = false  
+  }, [])
   
   function handleRegister(){
     history.push(`/register/${userId}`)
   }
 
-  async function renderBook(){
-    const response = await api.get(`bookcase/${userId}`, {
-      params: {
-        userId
-      }
-    })
-    return response.data    
+  function renderBook(){
+
+    var book = []
+    
+    firebase.database().ref('bookcase').on('value', (snapshot) => {
+      snapshot.forEach((item) => {
+
+        console.log(item.val().userId , ' - ', userId)
+
+        var title = item.val().title
+        var author = item.val().author
+        var genre = item.val().genre
+        var cover = item.val().cover
+        var note = item.val().note
+
+        var data = {
+          title,
+          author,
+          genre,
+          cover,
+          note
+        }
+
+        book.push(data)
+      })
+      
+      setBooks(book)
+    })  
   }
 
   return (
