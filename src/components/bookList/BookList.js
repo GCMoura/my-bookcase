@@ -2,13 +2,12 @@ import React from 'react'
 import firebase from '../../config/config'
 import deleteIcon from '../../assets/icons/delete.svg'
 import buildAlert from '../../utils/buildAlert'
-import api from '../../backend/api'
 
 import './styles.css'
 
 function BookList(props){
 
-  var userId = window.location.href.toString().replace("http://localhost:3000/bookcase/", '')
+  var userId = window.location.href.toString().replace("https://mybookcaseproject.web.app/", '')
   var title = props.title
 
   function deleteBook(){

@@ -4,14 +4,13 @@ import { useHistory } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
 import buildAlert from '../../utils/buildAlert'
-import api from '../../backend/api'
 
 import warningIcon from '../../assets/icons/warning.svg'
 
 function Register(){
   const history = useHistory()
 
-  var userId = window.location.href.toString().replace("http://localhost:3000/register/", '')
+  var userId = window.location.href.toString().replace("https://mybookcaseproject.web.app/", '')
 
   const path = `/bookcase/${userId}`
 

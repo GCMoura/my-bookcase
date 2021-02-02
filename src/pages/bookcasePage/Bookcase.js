@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import firebase from '../../config/config'
 import { useHistory } from 'react-router-dom'
-import api from '../../backend/api'
+
 import BookList from '../../components/bookList/BookList'
 import Header from '../../components/header/Header'
 
@@ -10,7 +10,7 @@ import './styles.css'
 function Bookcase(){
   const history = useHistory()
 
-  var userId = window.location.href.toString().replace("http://localhost:3000/bookcase/", '')
+  var userId = window.location.href.toString().replace("https://mybookcaseproject.web.app/", '')
 
   const path = `/${userId}`
   

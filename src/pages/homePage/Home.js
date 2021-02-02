@@ -7,7 +7,7 @@ import livroIcon from '../../assets/icons/livro.svg'
 
 function Home () {
   
-  var userId = window.location.href.toString().replace("http://localhost:3000/", '')
+  var userId = window.location.href.toString().replace("https://mybookcaseproject.web.app/", '')
 
   const path = `bookcase/${userId}`
 

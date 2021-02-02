@@ -1,5 +1,6 @@
 import React from 'react';
 import Route from './routes'
+import firebase from './config/config'
 
 import './assets/styles/global.css'
 
