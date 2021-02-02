@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+import firebase from './config/config'
+import 'firebase/analytics'
+import 'firebase/auth'
+import 'firebase/database'
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
