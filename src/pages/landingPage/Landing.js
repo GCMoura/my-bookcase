@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 
 import firebase from '../../config/config'
+import 'firebase/analytics'
+import 'firebase/auth'
+import 'firebase/database'
 
 import { Link } from 'react-router-dom'
 

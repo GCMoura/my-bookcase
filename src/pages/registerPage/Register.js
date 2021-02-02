@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import firebase from '../../config/config'
+import 'firebase/analytics'
+import 'firebase/auth'
+import 'firebase/database'
 import { useHistory } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Input from '../../components/input/Input'
