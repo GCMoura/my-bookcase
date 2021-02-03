@@ -16,7 +16,7 @@ function Landing () {
   const [user, setUser] = useState('')
 
   function  handleClick() {
-    console.log('aqui mais novo')
+    console.log('mudança de background')
     var provider = new firebase.auth.GithubAuthProvider();
   
     firebase
