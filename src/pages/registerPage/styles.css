@@ -1,0 +1,81 @@
+#page-user-form{
+  width: 100vw;
+  height: 100vh;
+  background: var(--background);
+}
+#page-user-form .page-header .header-content{
+  margin-bottom: 3.4rem;
+}
+#page-user-form main {
+  background: var(--form-background);
+  width: 100%;
+  max-width: 74rem;
+  border-radius: 0.8rem;
+  margin: -3.2rem auto 3.2rem;
+  padding-top: 1.8rem;
+  overflow: hidden;
+}
+
+#page-user-form main fieldset{
+  border: 0;
+  padding: 0 2.4rem;
+}
+
+#page-user-form main fieldset legend{
+  font: 700 2.4rem Archivo;
+  color: var(--font-black);
+  margin-bottom: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--input-border-line);
+}
+#page-user-form main label{
+  color: var(--font-black);
+}
+#page-user-form main footer{
+  padding: 1.8rem 2rem;
+  background : var(--form-background);
+  border-top: 1px solid var(--input-border-line);
+  margin-top: 6.4rem;
+}
+#page-user-form main footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--font-black);
+}
+#page-user-form main footer p img{
+  margin-right: 2rem;
+}
+#page-user-form main footer button{
+  width: 100%;
+  height: 5.6rem;
+  background: var(--button-blue-light);
+  color: var(--font);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 2.4rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-top: 1.2rem;
+}
+#page-user-form main footer button:hover {
+  background: var(--button-blue-dark);
+}
+
+ @media(min-width: 700px){
+
+  #page-user-form main{
+    margin: -6.5rem auto 3.2rem;
+  }
+
+} 
