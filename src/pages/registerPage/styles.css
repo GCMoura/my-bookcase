@@ -1,8 +1,7 @@
 #page-user-form{
   width: 100vw;
   height: 100vh;
-  /* background: var(--background); */
-  background: red;
+  background: var(--background);
 }
 #page-user-form .page-header .header-content{
   margin-bottom: 3.4rem;
