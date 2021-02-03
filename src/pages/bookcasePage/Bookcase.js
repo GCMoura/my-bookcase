@@ -20,7 +20,6 @@ function Bookcase(){
   const [books, setBooks] = useState([])
    
   useEffect(() => { 
-    let isParam = true
     renderBook()
     //   .then( book => {
     //   if (isParam) {

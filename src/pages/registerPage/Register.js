@@ -10,6 +10,8 @@ import buildAlert from '../../utils/buildAlert'
 
 import warningIcon from '../../assets/icons/warning.svg'
 
+import './styles.css'
+
 function Register(){
   const history = useHistory()
 

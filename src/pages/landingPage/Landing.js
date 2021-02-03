@@ -8,17 +8,15 @@ import 'firebase/database'
 import { Link } from 'react-router-dom'
 
 import landingImg from '../../assets/images/logo.svg'
-import loginIcon from '../../assets/icons/login.svg'
 
 import './styles.css'
-
 
 function Landing () {
   
   const [user, setUser] = useState('')
 
   function  handleClick() {
-    console.log('aqui novo')
+    console.log('aqui mais novo')
     var provider = new firebase.auth.GithubAuthProvider();
   
     firebase
