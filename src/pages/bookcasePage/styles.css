@@ -38,8 +38,8 @@
   justify-content: center;
   text-decoration: none;
   transition: background-color 0.3s;
-  margin-top: 1.2rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 7rem;
 }
 #page-user-form #title #register:hover{
   background: var(--button-red-dark);
