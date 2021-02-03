@@ -39,6 +39,7 @@
   text-decoration: none;
   transition: background-color 0.3s;
   margin-top: 1.2rem;
+  margin-bottom: 1rem;
 }
 #page-user-form #title #register:hover{
   background: var(--button-red-dark);
