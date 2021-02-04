@@ -41,22 +41,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3.0rem auto 0;
+  flex-direction: column;
+  margin: 3.0rem auto;
   width: 90%;
 }
 .button-login a{
-  width: 40rem;
+  width: 70%;
   height: 6.0rem;
   border-radius: 0.8rem;
-  
   font: 700 2rem Archivo;
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
   color: var(--font);
-
   transition: background-color 0.3s;
 }
 
@@ -71,18 +69,84 @@
 .button-login a.login:hover{
   background: var(--button-yelow-dark);
 }
-
-#button{
-  background: red;
-  color: white;
+.login-github{
+  width: 70%;
+  padding-left: 10px;
+  height: 5.6rem;
+  background: var(--button-blue-dark);
+  color: var(--font);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
 }
+.login-github:hover{
+  background: var(--button-black-dark);
+}
+#button-github{
+  cursor: pointer;
+  margin: 0px 10px;
+}
+.login-gmail{
+  width: 70%;
+  padding-left: 10px;
+  height: 5.6rem;
+  background: var(--button-red-dark);
+  color: var(--font);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.login-gmail:hover{
+  background: var(--button-black-dark);
+}
+
+#button-gmail{
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.logout{
+  width: 70%;
+  padding-left: 10px;
+  height: 5.6rem;
+  background: var(--button-red);
+  color: var(--font);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-top: 2rem;
+}
+.logout:hover{
+  background: var(--button-red-dark);
+}
+#logout-icon{
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
 
 @media(min-width: 1100px){
   #page-landing-content{
     max-width: 1100px;
-    /*max-height: 100vh; */
-
-    /* margin-top: 50px;*/
     margin-left: 80px; 
 
     display: grid;
@@ -117,7 +181,7 @@
   }
   .button-login{
     grid-area: button;
-    margin-top: -150px;
-    margin-left: 50px;
+    margin-top: -130px;
+    margin-left: 100px;
   }
 }

@@ -1,55 +1,43 @@
-import React, {useState} from 'react'
-
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import firebase from '../../config/config'
 import 'firebase/analytics'
 import 'firebase/auth'
 import 'firebase/database'
-
-import { Link } from 'react-router-dom'
-
 import landingImg from '../../assets/images/logo.svg'
-
+import Alert from '../../utils/buildAlert'
 import './styles.css'
 
 function Landing () {
-  
-  const [user, setUser] = useState('')
 
-  function  handleClick() {
-    console.log('mudança de background')
+  const history = useHistory()
+
+  function  handleLoginWithGithub() {
     var provider = new firebase.auth.GithubAuthProvider();
   
     firebase
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
-  
-        console.log(result)
-  
-        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-        var token = credential.accessToken;
-  
-        // The signed-in user info.
         var user = result.user;
-        
-        setUser(user.uid)
-        console.log(user.uid)
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
+        history.push(`bookcase/${user.uid}`)
+      })
+      .catch((error) => {
+        Alert(`Já existe um conta vinculada ao email ${error.email}. Tente novamente por outro método de Sign-In`, '#dd614a')
       });
     }
 
-  const path = `/bookcase/${user}`
+  function handleLoginWithGoogle(){
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        var user = result.user;
+        history.push(`bookcase/${user.uid}`)
+      }).catch((error) => {
+        Alert(`Já existe um conta vinculada ao email ${error.email}. Tente novamente por outro método de Sign-In`, '#dd614a')
+      });
+  }
 
   return (
     <div id="page-landing">
@@ -62,17 +50,16 @@ function Landing () {
         <img src={ landingImg } alt="Hero Img" className="hero-image"/>
 
         <div className="button-login">
-          <button id="button" onClick={handleClick}>Github</button>
-
-          <Link to={path}> 
-            {user}
-          </Link>
-          {/* <Link to="/login" className="login">
-            <img src={ loginIcon } alt="Login"/>
-            Login
-          </Link> */}
+          <div className="login-github" onClick={handleLoginWithGithub}>
+            <h1>Login com Github</h1>
+            <i className="fab fa-github-square fa-5x" id="button-github"></i>
+          </div>
+          <div className="login-gmail" onClick={handleLoginWithGoogle}>
+            <h1>Login com Google</h1>
+            <i className="fab fa-google fa-4x" id="button-gmail"></i>
+          </div>
         </div>
-
+          
       </div>
     </div>
   )

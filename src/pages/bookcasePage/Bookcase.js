@@ -10,27 +10,26 @@ import Header from '../../components/header/Header'
 
 import './styles.css'
 
+const baseURL = window.location.hostname.includes('localhost')
+? 'http://localhost:3000/bookcase/'
+: 'https://mybookcaseproject.web.app/bookcase/'
+
 function Bookcase(){
   const history = useHistory()
 
-  var userId = window.location.href.toString().replace("https://mybookcaseproject.web.app/", '')
+  var userId = window.location.href.toString().replace(baseURL, '')
 
-  const path = `/${userId}`
-  
+  const pathToRegister = `/register/${userId}`
+  const pathToHome = `/${userId}`
+    
   const [books, setBooks] = useState([])
    
   useEffect(() => { 
     renderBook()
-    //   .then( book => {
-    //   if (isParam) {
-    //     setBooks(book)
-    //   }
-    // })
-    // return () => isParam = false  
   }, [])
   
   function handleRegister(){
-    history.push(`/register/${userId}`)
+    history.push(pathToRegister)
   }
 
   function renderBook(){
@@ -40,25 +39,24 @@ function Bookcase(){
     firebase.database().ref('bookcase').on('value', (snapshot) => {
       snapshot.forEach((item) => {
 
-        console.log(item.val().userId , ' - ', userId)
-
-        var title = item.val().title
-        var author = item.val().author
-        var genre = item.val().genre
-        var cover = item.val().cover
-        var note = item.val().note
-
-        var data = {
-          title,
-          author,
-          genre,
-          cover,
-          note
+        if(item.val().userId === userId){
+          var title = item.val().title
+          var author = item.val().author
+          var genre = item.val().genre
+          var cover = item.val().cover
+          var note = item.val().note
+  
+          var data = {
+            title,
+            author,
+            genre,
+            cover,
+            note
+          }
+  
+          book.push(data)
         }
-
-        book.push(data)
       })
-      
       setBooks(book)
     })  
   }
@@ -66,7 +64,7 @@ function Bookcase(){
   return (
     <div id="page-user-form" className="containerList">
         <Header 
-          path={path}
+          path={pathToHome}
           title="Minha Estante"
         />
       <div id="title">
