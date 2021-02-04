@@ -55,10 +55,7 @@ function Home () {
             <i className="fas fa-sign-out-alt fa-4x" id="logout-icon"></i>
             <h1>Sign-out</h1>
           </div>
-          {/* <Link to='/' className="login">
-            <img src={ livroIcon } alt="Livro"/>
-            Minha estante
-          </Link> */}
+
         </div>
 
       </div>
