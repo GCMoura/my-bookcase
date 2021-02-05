@@ -1,5 +1,5 @@
 # My Bookcase
-This application aims to serve like a bookcase, where you can register the books you read and give note for then. 
+This application aims to serve like a bookcase, where you can register the books you read and give a grade for then. 
 
 ## Table of Contents
 - [My Bookcase](#my-bookcase)
@@ -17,6 +17,7 @@ This application aims to serve like a bookcase, where you can register the books
 
 ## Getting Started
 This page was created using HTML5, CSS3 and Vanilla Javascript, with ReactJS. For database and hosting was used firebase.
+
 Click to access: [My Bookcase](https://mybookcaseproject.web.app/)
 
 ## How it works
@@ -33,4 +34,4 @@ If you would like to contribute, please fork the repository and use a feature br
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ---
-Made with :heart: by Gabriel Moura. [Get in touch!](https://www.linkedin.com/in/gabriel-moura-b45b90150/)
+Made by Gabriel Moura. [Get in touch!](https://www.linkedin.com/in/gabriel-moura-b45b90150/)
