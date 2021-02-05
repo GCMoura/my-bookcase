@@ -25,7 +25,7 @@ Click to access: [My Bookcase](https://mybookcaseproject.web.app/)
 First of all, the user needs to login with an Github or Google account. So, the user can start to register your books, informing the title, the author, the genre, inserting a cover, and give a grade for the book.
 
 ## Clone
-Clone this repository to your local machine using https://github.com/GCMoura/my-bookcase
+Clone this repository to your local machine using https://github.com/GCMoura/my-bookcase.git
 
 ## Contributing
 If you would like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
